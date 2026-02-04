@@ -1,0 +1,60 @@
+<div class="admin-panel">
+  <div class="admin-header">
+    <h2>Administration Panel</h2>
+    <p class="subtitle">Tenant: {{ currentTenant?.name }}</p>
+  </div>
+
+  <div class="admin-grid">
+    <div class="admin-card">
+      <h3>User Management</h3>
+      <div class="user-list">
+        <div class="user-item" *ngFor="let user of mockUsers">
+          <span class="user-name">{{ user.username }}</span>
+          <span class="user-role" [ngClass]="user.role">{{ user.role }}</span>
+          <button class="btn-action">Edit</button>
+        </div>
+      </div>
+      <button class="btn-add-user">Add New User</button>
+    </div>
+
+    <div class="admin-card">
+      <h3>Tenant Settings</h3>
+      <div class="settings-list">
+        <div class="setting-item">
+          <label>Primary Color</label>
+          <input type="color" [value]="currentTenant?.theme.primaryColor" disabled>
+        </div>
+        <div class="setting-item">
+          <label>Secondary Color</label>
+          <input type="color" [value]="currentTenant?.theme.secondaryColor" disabled>
+        </div>
+        <div class="setting-item">
+          <label>Layout Type</label>
+          <span class="badge">{{ currentTenant?.layout }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <h3>System Information</h3>
+      <div class="system-info">
+        <p><strong>Version:</strong> 1.0.0</p>
+        <p><strong>Last Updated:</strong> {{ lastUpdated | date }}</p>
+        <p><strong>Active Users:</strong> 42</p>
+        <p><strong>Storage Used:</strong> 2.3 GB</p>
+      </div>
+      <button class="btn-system-action">Refresh Stats</button>
+    </div>
+
+    <div class="admin-card full-width">
+      <h3>Audit Log</h3>
+      <div class="audit-log">
+        <div class="log-entry" *ngFor="let entry of auditLog">
+          <span class="timestamp">{{ entry.timestamp | date:'short' }}</span>
+          <span class="action">{{ entry.action }}</span>
+          <span class="user">{{ entry.user }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

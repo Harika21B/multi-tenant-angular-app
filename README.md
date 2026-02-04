@@ -1,27 +1,50 @@
-# Rba
+# Multi-Tenant Angular Application with RBAC
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+A comprehensive Angular application demonstrating multi-tenancy and role-based access control for two different tenants.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Multi-Tenant Architecture**: Single codebase serving two tenants with different themes and layouts
+- **Dynamic Theming**: Tenant-specific colors, logos, and layouts
+- **Role-Based Access Control**: Admin and User roles with different permissions
+- **Responsive Design**: Works on desktop and mobile devices
+- **Firebase Deployment**: Easy deployment to Firebase Hosting
 
-## Code scaffolding
+## Tenant Configurations
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Tenant 1 (Side Navigation Layout)
+- **Subdomain**: tenant1.yourdomain.com
+- **Layout**: Side navigation
+- **Primary Color**: Indigo (#3f51b5)
+- **Secondary Color**: Pink (#ff4081)
+- **Logo**: assets/images/tenant1-logo.png
 
-## Build
+### Tenant 2 (Top Navigation Layout)
+- **Subdomain**: tenant2.yourdomain.com
+- **Layout**: Top navigation
+- **Primary Color**: Green (#4caf50)
+- **Secondary Color**: Blue (#2196f3)
+- **Logo**: assets/images/tenant2-logo.png
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Test Credentials
 
-## Running unit tests
+### Tenant 1 (tenant1.domain.com)
+- **Admin**: username: `admin1`, password: `password123`
+- **User**: username: `user1`, password: `password123`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Tenant 2 (tenant2.domain.com)
+- **Admin**: username: `admin2`, password: `password123`
+- **User**: username: `user2`, password: `password123`
 
-## Running end-to-end tests
+## Setup Instructions
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 1. Prerequisites
+- Node.js (v18 or higher)
+- Angular CLI: `npm install -g @angular/cli`
+- Firebase CLI: `npm install -g firebase-tools`
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 2. Clone and Install
+```bash
+git clone <repository-url>
+cd multi-tenant-angular-app
+npm install

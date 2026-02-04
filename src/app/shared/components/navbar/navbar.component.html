@@ -1,0 +1,39 @@
+<nav [ngClass]="{'side-nav': type === 'side', 'top-nav': type === 'top'}">
+  <ul>
+    <li>
+      <a routerLink="/dashboard" routerLinkActive="active">
+        <span class="icon">
+          <i class="fas fa-chart-bar"></i>
+        </span>
+        <span class="text">Dashboard</span>
+      </a>
+    </li>
+    
+    <li *ngIf="isAdmin">
+      <a routerLink="/admin" routerLinkActive="active">
+        <span class="icon">
+          <i class="fas fa-crown"></i>
+        </span>
+        <span class="text">Admin Panel</span>
+      </a>
+    </li>
+    
+    <li>
+      <a routerLink="/settings" routerLinkActive="active">
+        <span class="icon">
+          <i class="fas fa-cog"></i>
+        </span>
+        <span class="text">Settings</span>
+      </a>
+    </li>
+    
+    <li>
+      <a routerLink="/profile" routerLinkActive="active">
+        <span class="icon">
+          <i class="fas fa-user"></i>
+        </span>
+        <span class="text">Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>

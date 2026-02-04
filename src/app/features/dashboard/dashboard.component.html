@@ -1,0 +1,51 @@
+<div class="dashboard">
+  <h2>Dashboard</h2>
+  <p>Welcome, {{ currentUser?.username }}! Your role is: {{ currentUser?.role }}</p>
+
+  <div class="dashboard-cards">
+    <!-- Card 1: Visible to all users -->
+    <div class="card">
+      <div class="card-header">
+        <h3>Statistics Overview</h3>
+      </div>
+      <div class="card-body">
+        <p>Total Users: 1,234</p>
+        <p>Active Sessions: 567</p>
+        <p>Revenue: $45,678</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Only visible to admins -->
+    @if (isAdmin) {
+    <div class="card admin-card">
+      <div class="card-header">
+        <h3>Administration Panel</h3>
+        <span class="badge">Admin Only</span>
+      </div>
+      <div class="card-body">
+        <p>Manage user accounts</p>
+        <p>Configure system settings</p>
+        <p>View audit logs</p>
+        <button routerLink="/admin" class="btn-admin">
+          Go to Admin Panel
+        </button>
+      </div>
+    </div>
+    }
+
+    <!-- Message for non-admin users -->
+    @if (!isAdmin) {
+    <div class="card">
+      <div class="card-header">
+        <h3>User Features</h3>
+      </div>
+      <div class="card-body">
+        <p>View your profile</p>
+        <p>Update settings</p>
+        <p>Access basic reports</p>
+        <p class="note">Contact your administrator for additional features</p>
+      </div>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<header class="header" [ngClass]="{'layout-top': layout === 'top', 'layout-side': layout === 'side'}">
+  <div class="header-left">
+    @if (tenant) {
+      <img [src]="tenant.logo" [alt]="tenant.name" class="logo">
+    }
+    <h1>{{ tenant?.name || 'Dashboard' }}</h1>
+  </div>
+  
+  @if (currentUser) {
+    <div class="header-right">
+      <span class="user-info" [attr.data-role]="currentUser.role">
+        {{ currentUser.username }} ({{ currentUser.role }})
+      </span>
+      <button (click)="logout()" class="btn-logout">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </button>
+    </div>
+  }
+</header>

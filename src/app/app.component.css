@@ -1,0 +1,18 @@
+ .app-container {
+      min-height: 100vh;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+    
+    .main-content {
+      transition: margin-left 0.3s;
+    }
+    
+    .main-content.with-side-nav {
+      margin-left: 250px;
+      padding-top: 20px;
+    }
+    
+    .layout-top .main-content {
+      padding-top: 120px;
+    }

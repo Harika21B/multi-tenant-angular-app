@@ -1,0 +1,100 @@
+<div class="tenant-switcher">
+  <p><strong>Current Tenant: {{ tenant?.id }}</strong></p>
+  <div class="switch-buttons">
+    <button (click)="switchTenant('tenant1')" [class.active]="tenant?.id === 'tenant1'" class="switch-btn">
+      Switch to Tenant 1
+    </button>
+    <button (click)="switchTenant('tenant2')" [class.active]="tenant?.id === 'tenant2'" class="switch-btn">
+      Switch to Tenant 2
+    </button>
+  </div>
+</div>
+<div class="login-container">
+  <div class="login-card">
+    <!-- Show loading state -->
+    @if (tenantLoading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading tenant configuration...</p>
+    </div>
+    } @else {
+    <!-- Show tenant selection if no tenant loaded -->
+    @if (!tenant) {
+    <div class="tenant-selection">
+      <h3>Select Tenant</h3>
+      <p>No tenant configuration loaded. Please select a tenant:</p>
+      <div class="tenant-buttons">
+        <button (click)="selectTenant('tenant1')" class="tenant-btn tenant1-btn">
+          <strong>Tenant 1</strong>
+          <small>Side Navigation Layout</small>
+          <small>Use: admin1 / password123</small>
+        </button>
+        <button (click)="selectTenant('tenant2')" class="tenant-btn tenant2-btn">
+          <strong>Tenant 2</strong>
+          <small>Top Navigation Layout</small>
+          <small>Use: admin2 / password123</small>
+        </button>
+      </div>
+    </div>
+    } @else {
+    <!-- Show login form when tenant is loaded -->
+    <div class="login-content">
+      <div class="login-header">
+        <img [src]="tenant.logo" [alt]="tenant.name" class="login-logo">
+        <h2>Welcome to {{ tenant.name }}</h2>
+        <p>Please sign in to continue</p>
+      </div>
+
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" formControlName="username" placeholder="Enter username"
+            [ngClass]="{'invalid': submitted && f['username'].errors}">
+          @if (submitted && f['username'].errors) {
+          <div class="error-message">
+            Username is required
+          </div>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" formControlName="password" placeholder="Enter password"
+            [ngClass]="{'invalid': submitted && f['password'].errors}">
+          @if (submitted && f['password'].errors) {
+          <div class="error-message">
+            Password is required
+          </div>
+          }
+        </div>
+
+        @if (errorMessage) {
+        <div class="error-message global-error">
+          {{ errorMessage }}
+        </div>
+        }
+
+        <button type="submit" class="btn-login" [disabled]="loading">
+          {{ loading ? 'Signing in...' : 'Sign In' }}
+        </button>
+
+        <div class="demo-credentials">
+          <p><strong>Demo Credentials for {{ tenant.name }}:</strong></p>
+          @if (tenant.id === 'tenant1') {
+          <p>• Username: <strong>admin1</strong> (Admin role)</p>
+          <p>• Username: <strong>user1</strong> (User role)</p>
+          } @else if (tenant.id === 'tenant2') {
+          <p>• Username: <strong>admin2</strong> (Admin role)</p>
+          <p>• Username: <strong>user2</strong> (User role)</p>
+          }
+          <p><strong>Password for all users:</strong> <code>password123</code></p>
+          <p class="debug-info">
+            <small>Tenant ID: {{ tenant.id }} | Layout: {{ tenant.layout }}</small>
+          </p>
+        </div>
+      </form>
+    </div>
+    }
+    }
+  </div>
+</div>

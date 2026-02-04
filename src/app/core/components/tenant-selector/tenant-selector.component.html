@@ -1,0 +1,18 @@
+<div class="tenant-selector" *ngIf="showSelector">
+  <div class="selector-card">
+    <h3>Select Tenant</h3>
+    <div class="tenant-options">
+      <button (click)="selectTenant('tenant1')" class="tenant-btn tenant1">
+        <h4>Tenant 1</h4>
+        <p>Side Navigation Layout</p>
+        <small>Use: admin1 / password123</small>
+      </button>
+
+      <button (click)="selectTenant('tenant2')" class="tenant-btn tenant2">
+        <h4>Tenant 2</h4>
+        <p>Top Navigation Layout</p>
+        <small>Use: admin2 / password123</small>
+      </button>
+    </div>
+  </div>
+</div>

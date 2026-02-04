@@ -1,0 +1,30 @@
+{
+  "tenants": [
+    {
+      "id": "tenant1",
+      "name": "Tenant One",
+      "subdomain": "tenant1",
+      "layout": "side",
+      "logo": "assets/images/tentant1.webp",
+      "theme": {
+        "primaryColor": "#3f51b5",
+        "secondaryColor": "#ff4081",
+        "backgroundColor": "#f5f5f5",
+        "textColor": "#333333"
+      }
+    },
+    {
+      "id": "tenant2",
+      "name": "Tenant Two",
+      "subdomain": "tenant2",
+      "layout": "top",
+      "logo": "assets/images/tentant2.webp",
+      "theme": {
+        "primaryColor": "#4caf50",
+        "secondaryColor": "#2196f3",
+        "backgroundColor": "#ffffff",
+        "textColor": "#222222"
+      }
+    }
+  ]
+}
