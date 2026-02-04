@@ -1,0 +1,27 @@
+{
+  "projects": {
+    "tenant1": "tenant-1-rba-app",
+    "tenant2": "tenant-2-rba-app",
+    "default": "tenant-2-rba-app"
+  },
+  "targets": {
+    "tenant-1-rba-app": {
+      "hosting": {
+        "tenant1": [
+          "tenant-1-rba-app"
+        ]
+      }
+    },
+    "tenant-2-rba-app": {
+      "hosting": {
+        "tenant2": [
+          "tenant-2-rba-app"
+        ],
+        "tenant1": [
+          "tenant-1-rba-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
